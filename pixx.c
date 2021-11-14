@@ -7,8 +7,8 @@
 #include <stdbool.h>
 struct pixx
 {
-    char nome[5][300];
-    char chave[5][60];
+    char nome[5][40];
+    char chave[5][15];
 };
 struct pixx cartao;
 void transferencia();
@@ -18,41 +18,32 @@ bool flag = false, flag2 = false, flag3 = false, flag4 = false, flag5 = false;
 char meucpf[12], meuemail[40], meutelefone[12];
 int chavealeatoria, dfavoritos, cfavoritos;
 int main() {
-
-    // Define o valor das páginas de código UTF8 e default do Windows
-    UINT CPAGE_UTF8 = 65001;
-    UINT CPAGE_DEFAULT = GetConsoleOutputCP();
-     // Define codificação como sendo UTF-8
-    SetConsoleOutputCP(CPAGE_UTF8);
     int n;
 
     printf("\n -- Pix --\n");
     printf("\n1-Transferir  \n2-Minhas Chaves\n3-Favoritos\n4-Sair do menu pix\n");
     scanf("%d", &n);
 
-    if(n == 1){
+    switch(n){
+        case 1:
         transferencia();
-    }else if(n == 2){
+        break;
+        case 2:
         minhas_chaves();
-    }else if(n == 3){
+        break;
+        case 3:
         favoritos();
-    }else{
-        printf("Escolha não existente, tentar de novo.\n");
+        break;
+        case 5:
+        //chamar a função do menu
+        default:
+        printf("Escolha nao existente, tentar de novo.\n");
+        break;
     }
-
-
-
-    // Retorna codificação padrão do Windows
-    SetConsoleOutputCP(CPAGE_DEFAULT);
     return 0;
 }
 void transferencia(){
     system("cls");
-     // Define o valor das páginas de código UTF8 e default do Windows
-    UINT CPAGE_UTF8 = 65001;
-    UINT CPAGE_DEFAULT = GetConsoleOutputCP();
-     // Define codificação como sendo UTF-8
-    SetConsoleOutputCP(CPAGE_UTF8);
     char nome[35], mensagem[25], cpf[12], chavea[12], email[40], celular[12];
     int w1 = 0, escolha1, saldo, vt, cont = 0, escolhasfavoritos;
     saldo = 400;  // vai ter ligação com a parte do João     
@@ -174,19 +165,11 @@ void transferencia(){
         }   
         
     } w1 = 0;// final de transferências
-    // Retorna codificação padrão do Windows
-    SetConsoleOutputCP(CPAGE_DEFAULT);
 return;
 }
 void minhas_chaves(){
     system("cls");
     int w2, escolha2, escolha3, chavealeatoria;
-    //bool flag = false, flag2 = false;
-    // Define o valor das páginas de código UTF8 e default do Windows
-    UINT CPAGE_UTF8 = 65001;
-    UINT CPAGE_DEFAULT = GetConsoleOutputCP();
-     // Define codificação como sendo UTF-8
-    SetConsoleOutputCP(CPAGE_UTF8);
     while(w2 != 2){
         printf("\n1-Para cadastrar uma nova chave pix \n2-Chaves Cadrastadas \n");
         scanf("%d", &escolha2);
